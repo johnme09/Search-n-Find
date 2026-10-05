@@ -1,5 +1,14 @@
-import { BrowserRouter, Routes, Route, Navigate, Link } from 'react-router-dom'
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  Link,
+} from 'react-router-dom'
+
 import SearchPage from './pages/SearchPage'
+import ItemDetailPage from './pages/ItemDetailPage'
+
 import './App.css'
 
 function App() {
@@ -15,13 +24,26 @@ function App() {
             <Link to="/search">Search</Link>
             <Link to="/search">Report Item</Link>
             <Link to="/search">My Activity</Link>
+
             <button>Login</button>
           </nav>
         </header>
 
         <Routes>
-          <Route path="/" element={<Navigate to="/search" replace />} />
-          <Route path="/search" element={<SearchPage />} />
+          <Route
+            path="/"
+            element={<Navigate to="/search" replace />}
+          />
+
+          <Route
+            path="/search"
+            element={<SearchPage />}
+          />
+
+          <Route
+            path="/items/:id"
+            element={<ItemDetailPage />}
+          />
         </Routes>
       </div>
     </BrowserRouter>

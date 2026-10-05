@@ -1,3 +1,6 @@
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+
 type Item = {
   id: number
   name: string
@@ -35,6 +38,36 @@ const items: Item[] = [
 ]
 
 function SearchPage() {
+  const [searchTerm, setSearchTerm] = useState('')
+  const [statusFilter, setStatusFilter] = useState('')
+  const [categoryFilter, setCategoryFilter] = useState('')
+  const [locationFilter, setLocationFilter] = useState('')
+
+  const filteredItems = items.filter((item) => {
+    const matchesSearch = item.name
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase())
+
+    const matchesStatus =
+      statusFilter === '' ||
+      item.status.toLowerCase() === statusFilter
+
+    const matchesCategory =
+      categoryFilter === '' ||
+      item.category.toLowerCase() === categoryFilter
+
+    const matchesLocation =
+      locationFilter === '' ||
+      item.location.toLowerCase().replace(' ', '-') === locationFilter
+
+    return (
+      matchesSearch &&
+      matchesStatus &&
+      matchesCategory &&
+      matchesLocation
+    )
+  })
+
   return (
     <main className="search-page">
       <h1>Search Lost & Found Items</h1>
@@ -43,15 +76,23 @@ function SearchPage() {
         <input
           type="text"
           placeholder="Search by item name..."
+          value={searchTerm}
+          onChange={(event) => setSearchTerm(event.target.value)}
         />
 
-        <select>
+        <select
+          value={statusFilter}
+          onChange={(event) => setStatusFilter(event.target.value)}
+        >
           <option value="">All Statuses</option>
           <option value="lost">Lost</option>
           <option value="found">Found</option>
         </select>
 
-        <select>
+        <select
+          value={categoryFilter}
+          onChange={(event) => setCategoryFilter(event.target.value)}
+        >
           <option value="">All Categories</option>
           <option value="electronics">Electronics</option>
           <option value="clothing">Clothing</option>
@@ -59,48 +100,60 @@ function SearchPage() {
           <option value="other">Other</option>
         </select>
 
-        <select>
+        <select
+          value={locationFilter}
+          onChange={(event) => setLocationFilter(event.target.value)}
+        >
           <option value="">All Locations</option>
           <option value="library">Library</option>
           <option value="student-center">Student Center</option>
           <option value="engineering">Engineering Building</option>
         </select>
 
-        <button>Search</button>
+        <button type="button">Search</button>
       </div>
 
       <section className="results">
         <h2>Items</h2>
 
-        <div className="item-grid">
-          {items.map((item) => (
-            <article className="item-card" key={item.id}>
-              <div className="item-card-header">
-                <h3>{item.name}</h3>
+        {filteredItems.length === 0 ? (
+          <p>No items found.</p>
+        ) : (
+          <div className="item-grid">
+            {filteredItems.map((item) => (
+              <article className="item-card" key={item.id}>
+                <div className="item-card-header">
+                  <h3>{item.name}</h3>
 
-                <span className={`status ${item.status.toLowerCase()}`}>
-                  {item.status}
-                </span>
-              </div>
+                  <span
+                    className={`status ${item.status.toLowerCase()}`}
+                  >
+                    {item.status}
+                  </span>
+                </div>
 
-              <p>
-                <strong>Category:</strong> {item.category}
-              </p>
+                <p>
+                  <strong>Category:</strong> {item.category}
+                </p>
 
-              <p>
-                <strong>Location:</strong> {item.location}
-              </p>
+                <p>
+                  <strong>Location:</strong> {item.location}
+                </p>
 
-              <p>
-                <strong>Date:</strong> {item.date}
-              </p>
+                <p>
+                  <strong>Date:</strong> {item.date}
+                </p>
 
-              <button className="details-button">
-                View Details
-              </button>
-            </article>
-          ))}
-        </div>
+                <Link
+                  to={`/items/${item.id}`}
+                  className="details-button"
+                >
+                  View Details
+                </Link>
+              </article>
+            ))}
+          </div>
+        )}
       </section>
     </main>
   )

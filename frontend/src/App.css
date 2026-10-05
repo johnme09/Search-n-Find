@@ -236,3 +236,152 @@ select {
     grid-template-columns: 1fr;
   }
 }
+.details-button {
+  display: block;
+  width: 100%;
+  margin-top: 16px;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background: #111827;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.details-button:hover {
+  background: #374151;
+}
+/* =========================
+   Item Detail Page
+   ========================= */
+
+.item-detail-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 24px;
+}
+
+.item-detail-card {
+  padding: 36px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+
+.item-detail-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.item-detail-header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+}
+
+.item-subtitle {
+  margin: 8px 0 0;
+  color: #6b7280;
+}
+
+.item-detail-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 28px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.detail-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.detail-row strong {
+  color: #374151;
+}
+
+.detail-row span {
+  color: #6b7280;
+}
+
+.item-description {
+  padding: 28px 0;
+}
+
+.item-description h2 {
+  margin: 0 0 12px;
+  font-size: 1.3rem;
+}
+
+.item-description p {
+  margin: 0;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+.item-detail-actions {
+  display: flex;
+  gap: 12px;
+  padding-top: 10px;
+}
+
+.claim-button,
+.back-button {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.claim-button {
+  border: none;
+  background: #111827;
+  color: white;
+}
+
+.claim-button:hover {
+  background: #374151;
+}
+
+.back-button {
+  border: 1px solid #d1d5db;
+  background: white;
+  color: #111827;
+}
+
+.back-button:hover {
+  background: #f3f4f6;
+}
+
+@media (max-width: 700px) {
+  .item-detail-card {
+    padding: 24px;
+  }
+
+  .item-detail-header {
+    flex-direction: column;
+  }
+
+  .item-detail-info {
+    grid-template-columns: 1fr;
+  }
+
+  .item-detail-actions {
+    flex-direction: column;
+  }
+
+  .claim-button,
+  .back-button {
+    width: 100%;
+    text-align: center;
+  }
+}
