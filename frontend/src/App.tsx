@@ -9,6 +9,7 @@ import {
 import SearchPage from './pages/SearchPage'
 import ItemDetailPage from './pages/ItemDetailPage'
 import ReportItemPage from './pages/ReportItemPage'
+import MyActivityPage from './pages/MyActivityPage'
 
 import './App.css'
 
@@ -30,7 +31,7 @@ function App() {
               Report Item
             </Link>
 
-            <Link to="/search">
+            <Link to="/activity">
               My Activity
             </Link>
 
@@ -59,6 +60,11 @@ function App() {
           <Route
             path="/report"
             element={<ReportItemPage />}
+          />
+
+          <Route
+            path="/activity"
+            element={<MyActivityPage />}
           />
         </Routes>
       </div>
