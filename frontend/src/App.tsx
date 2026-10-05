@@ -8,6 +8,7 @@ import {
 
 import SearchPage from './pages/SearchPage'
 import ItemDetailPage from './pages/ItemDetailPage'
+import ReportItemPage from './pages/ReportItemPage'
 
 import './App.css'
 
@@ -21,11 +22,21 @@ function App() {
           </Link>
 
           <nav>
-            <Link to="/search">Search</Link>
-            <Link to="/search">Report Item</Link>
-            <Link to="/search">My Activity</Link>
+            <Link to="/search">
+              Search
+            </Link>
 
-            <button>Login</button>
+            <Link to="/report">
+              Report Item
+            </Link>
+
+            <Link to="/search">
+              My Activity
+            </Link>
+
+            <button type="button">
+              Login
+            </button>
           </nav>
         </header>
 
@@ -43,6 +54,11 @@ function App() {
           <Route
             path="/items/:id"
             element={<ItemDetailPage />}
+          />
+
+          <Route
+            path="/report"
+            element={<ReportItemPage />}
           />
         </Routes>
       </div>
