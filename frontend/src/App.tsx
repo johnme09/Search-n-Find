@@ -11,6 +11,7 @@ import ItemDetailPage from './pages/ItemDetailPage'
 import ReportItemPage from './pages/ReportItemPage'
 import MyActivityPage from './pages/MyActivityPage'
 import LoginRegisterPage from './pages/LoginRegisterPage'
+import AdminClaimReviewPage from './pages/AdminClaimReviewPage'
 
 import './App.css'
 
@@ -74,6 +75,11 @@ function App() {
           <Route
             path="/login"
             element={<LoginRegisterPage />}
+          />
+
+          <Route
+            path="/admin/claims"
+            element={<AdminClaimReviewPage />}
           />
         </Routes>
       </div>

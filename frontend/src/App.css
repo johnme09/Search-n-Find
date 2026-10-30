@@ -802,3 +802,207 @@ select {
     padding: 24px;
   }
 }
+/* =========================
+   Admin Claim Review
+   ========================= */
+
+.admin-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 60px 24px;
+}
+
+.admin-header {
+  margin-bottom: 40px;
+}
+
+.admin-header h1 {
+  margin: 0 0 8px;
+  font-size: 2.2rem;
+}
+
+.admin-header p {
+  margin: 0;
+  color: #6b7280;
+}
+
+.admin-section {
+  margin-bottom: 40px;
+}
+
+.admin-section .section-header {
+  margin-bottom: 20px;
+}
+
+.admin-section .section-header h2 {
+  margin: 0;
+}
+
+.admin-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.admin-claim-card {
+  padding: 26px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+}
+
+.admin-claim-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.admin-claim-header h3 {
+  margin: 0 0 6px;
+}
+
+.admin-claim-header p {
+  margin: 0;
+  color: #6b7280;
+}
+
+.claim-status {
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.claim-status.pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.claim-status.approved {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.claim-status.denied {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.admin-claim-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.admin-claim-info p {
+  margin: 0;
+  color: #4b5563;
+}
+
+.admin-claim-details {
+  padding: 18px;
+  margin-bottom: 20px;
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+.admin-claim-details h4 {
+  margin: 0 0 8px;
+}
+
+.admin-claim-details p {
+  margin: 0;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.admin-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.admin-actions button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.approve-button {
+  background: #166534;
+  color: white;
+}
+
+.approve-button:hover {
+  background: #14532d;
+}
+
+.deny-button {
+  background: #991b1b;
+  color: white;
+}
+
+.deny-button:hover {
+  background: #7f1d1d;
+}
+
+.admin-secondary-button {
+  background: #111827;
+  color: white;
+}
+
+.admin-secondary-button:hover {
+  background: #374151;
+}
+
+@media (max-width: 600px) {
+  .admin-page {
+    padding: 40px 20px;
+  }
+
+  .admin-claim-header {
+    flex-direction: column;
+  }
+
+  .admin-claim-info {
+    grid-template-columns: 1fr;
+  }
+}
+/* =========================
+   Claim History
+   ========================= */
+
+.claim-history {
+  margin-top: 20px;
+  padding: 18px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+
+.claim-history h4 {
+  margin: 0 0 12px;
+}
+
+.claim-history p {
+  margin: 6px 0;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.history-entry {
+  padding: 12px 0;
+  border-top: 1px solid #e5e7eb;
+}
+
+.history-entry:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
