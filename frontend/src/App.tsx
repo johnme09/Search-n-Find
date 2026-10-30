@@ -10,6 +10,7 @@ import SearchPage from './pages/SearchPage'
 import ItemDetailPage from './pages/ItemDetailPage'
 import ReportItemPage from './pages/ReportItemPage'
 import MyActivityPage from './pages/MyActivityPage'
+import LoginRegisterPage from './pages/LoginRegisterPage'
 
 import './App.css'
 
@@ -35,9 +36,12 @@ function App() {
               My Activity
             </Link>
 
-            <button type="button">
+            <Link
+              to="/login"
+              className="login-button"
+            >
               Login
-            </button>
+            </Link>
           </nav>
         </header>
 
@@ -65,6 +69,11 @@ function App() {
           <Route
             path="/activity"
             element={<MyActivityPage />}
+          />
+
+          <Route
+            path="/login"
+            element={<LoginRegisterPage />}
           />
         </Routes>
       </div>
