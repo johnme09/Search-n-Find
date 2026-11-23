@@ -30,7 +30,7 @@ claimsRouter.post('/items/:id/claims', requireAuth, async (req, res, next) => {
         if (['Returned', 'Closed'].includes(item.lifecycle)) {
             return res.status(400).json({ error: 'Item is no longer available' })
         }
-        if (item.userId.equals(claimantId)) {
+        if (item.userId == claimantId) {
             return res
                 .status(400)
                 .json({ error: 'You cannot claim your own item' })
